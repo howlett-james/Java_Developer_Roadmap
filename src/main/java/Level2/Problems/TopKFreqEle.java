@@ -1,7 +1,6 @@
 package Level2.Problems;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TopKFreqEle {
     /*Count the frequency of each number using a HashMap
