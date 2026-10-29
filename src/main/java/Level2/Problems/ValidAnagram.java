@@ -20,7 +20,7 @@ END FOR
 Return true
 */
     public static void main(String[] args) {
-
+        System.out.println(isAnagram("eat", "tea") ?"Anagram" :"Not an Anagram");
     }
     public static boolean isAnagram(String str1, String str2){
         if(str1.length() != str2.length()){

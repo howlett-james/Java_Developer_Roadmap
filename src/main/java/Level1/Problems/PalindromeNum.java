@@ -2,7 +2,7 @@ package Level1.Problems;
 
 import java.util.Scanner;
 
-public class Palindrome {
+public class PalindromeNum {
     /*START
     Read n
     Store original number
