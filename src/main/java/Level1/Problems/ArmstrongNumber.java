@@ -26,20 +26,23 @@ public class ArmstrongNumber {
     STOP
     * */
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
-        int temp = n, count =0;
-        while (temp>0){
-            temp /= 10;
-            count++;
+        try(Scanner s = new Scanner(System.in)){
+            int n = s.nextInt();
+            s.close();
+            int temp = n, count =0;
+            while (temp>0){
+                temp /= 10;
+                count++;
+            }
+            temp = n;
+            int sum =0;
+            while (temp>0){
+                int lastDigit = temp%10;
+                sum = (int) (sum + Math.pow(lastDigit, count));
+                temp /= 10;
+            }
+            System.out.println((sum==n) ? "Armstrong" : "Not Armstrong");
         }
-        temp = n;
-        int sum =0;
-        while (temp>0){
-            int lastDigit = temp%10;
-            sum = (int) (sum + Math.pow(lastDigit, count));
-            temp /= 10;
-        }
-        System.out.println((sum==n) ? "Armstrong" : "Not Armstrong");
+        
     }
 }

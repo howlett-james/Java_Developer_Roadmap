@@ -21,9 +21,11 @@ public class PrimeNumber {
     STOP
     * */
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        System.out.println(isPrime(n) ? "Prime" : "Not Prime");
+        try (Scanner scan = new Scanner(System.in)) {
+            int n = scan.nextInt();
+            System.out.println(isPrime(n) ? "Prime" : "Not Prime");
+            scan.close();
+        }
     }
     public static boolean isPrime(int n){
 

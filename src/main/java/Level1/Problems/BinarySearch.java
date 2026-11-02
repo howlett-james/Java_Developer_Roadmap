@@ -31,25 +31,27 @@ public class BinarySearch{
         int[] arr = {23, 32, 50, 87, 25, 77, 17};
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
-        Scanner s = new Scanner(System.in);
-        int target = s.nextInt();
-        int left =0;
-        int right = arr.length-1;
-        boolean isFound = false;
-        while(left<=right){
-            int middle = (left+right)/2;
-            if(arr[middle]==target){
-                isFound=true;
-                System.out.println("Found at "+middle);
-                break;
-            }else if (arr[middle]<target){
-                left =middle+1;
-            }else {
-                right=middle-1;
+        try(Scanner s = new Scanner(System.in)){
+                        int target = s.nextInt();
+            int left =0;
+            int right = arr.length-1;
+            boolean isFound = false;
+            while(left<=right){
+                int middle = (left+right)/2;
+                if(arr[middle]==target){
+                    isFound=true;
+                    System.out.println("Found at "+middle);
+                    break;
+                }else if (arr[middle]<target){
+                    left =middle+1;
+                }else {
+                    right=middle-1;
+                }
             }
-        }
-        if(!isFound){
-            System.out.println("Element not found");
+            if(!isFound){
+                System.out.println("Element not found");
+            }
+            s.close();
         }
     }
 }
