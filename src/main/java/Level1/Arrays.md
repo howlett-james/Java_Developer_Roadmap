@@ -1,153 +1,137 @@
-## Level 1 — Arrays
+# **LEVEL 1 — Arrays**
 
-### 1. Array Basics
+Concepts phase
 
-**Definition:**
-An array stores multiple values of the same type in a fixed-size, ordered collection.
+The Excel lists four subtopics under Arrays. All four are covered below.
 
-**Declaration:**
+## **1. Array Basics**
 
-```java
-int[] numbers;
-```
-
-**Initialization:**
-
-```java
-numbers = new int[5];
-```
-
-**Declaration + Initialization:**
-
-```java
-int[] numbers = {10, 20, 30, 40, 50};
-```
-
-**Key points:**
-
-* Index starts from `0`.
-* First element → index `0`.
-* Last index → `length - 1`.
-* Array size is fixed.
-
----
-
-### 2. Traversal
-
-**Definition:**
-Traversal means **visiting each element of an array one by one**.
+An **array** is a collection of elements of the same data type stored in a single variable.
 
 Example:
 
-```text
-[10, 20, 30, 40]
-
-10 → visit
-20 → visit
-30 → visit
-40 → visit
+```
+int[] arr = {10, 20, 30, 40, 50};
 ```
 
-**Using `for` loop:**
+- `int[]` – declares an integer array.
+- `arr` – array name.
+- `{10, 20, 30, 40, 50}` – array elements.
+- Index starts from `0`.
 
-```java
-for (int i = 0; i < numbers.length; i++) {
-    System.out.println(numbers[i]);
+Accessing elements:
+
+```
+System.out.println(arr[0]); // 10
+System.out.println(arr[2]); // 30
+```
+
+Getting array length:
+
+```
+System.out.println(arr.length); // 5
+```
+
+## **2. Array Traversal**
+
+**Traversal** means visiting each element of an array one by one.
+
+Using a `for` loop:
+
+```
+int[] arr = {10, 20, 30};
+
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
 }
 ```
 
-**Using enhanced `for` loop:**
+Using an enhanced `for` loop:
 
-```java
-for (int number : numbers) {
-    System.out.println(number);
+```
+for (int num : arr) {
+    System.out.println(num);
 }
 ```
 
-**Key point:**
-Use traversal when you need to process **every element**.
+## **3. 1D and 2D Arrays**
 
----
+**1D Array**
 
-### 3. 1D Array
+Stores elements in a single row.
 
-**Definition:**
-A 1D array stores elements in a **single row/sequence**.
-
-```java
-int[] numbers = {10, 20, 30, 40};
+```
+int[] arr = {10, 20, 30, 40};
 ```
 
-```text
-Index:  0   1   2   3
-Value: 10  20  30  40
+Access:
+
+```
+System.out.println(arr[1]); // 20
 ```
 
----
+**2D Array**
 
-### 4. 2D Array
+Stores elements in rows and columns (table format).
 
-**Definition:**
-A 2D array stores elements in **rows and columns**, like a table.
-
-```java
-int[][] matrix = {
-    {1, 2, 3},
-    {4, 5, 6}
+```
+int[][] arr = {
+    {10, 20, 30},
+    {40, 50, 60}
 };
 ```
 
-```text
-1  2  3
-4  5  6
+Accessing elements:
+
+```
+System.out.println(arr[0][1]); // 20
+System.out.println(arr[1][2]); // 60
 ```
 
-Accessing an element requires **row index + column index**.
+Traversing a 2D array:
 
-```java
-matrix[1][2]
+```
+for (int i = 0; i < arr.length; i++) {
+    for (int j = 0; j < arr[i].length; j++) {
+        System.out.println(arr[i][j]);
+    }
+}
 ```
 
-Result:
+- `arr.length` – number of rows.
+- `arr[i].length` – number of columns in row `i`.
 
-```text
-6
+## **4. Arrays Utility Methods**
+
+Java provides the `Arrays` class to perform common array operations.
+
+Import:
+
+```
+import java.util.Arrays;
 ```
 
----
-
-### 5. Arrays Utility Methods
-
-**Definition:**
-`Arrays` is a Java utility class that provides ready-made methods for working with arrays.
-
-Common methods:
-
-| Method       | Purpose                            |
-| ------------ | ---------------------------------- |
-| `sort()`     | Sorts elements                     |
-| `toString()` | Converts array to readable text    |
-| `equals()`   | Compares two arrays                |
-| `copyOf()`   | Creates a copy with specified size |
-| `fill()`     | Fills array with a value           |
+| Method                          | Purpose                                        |
+| ------------------------------- | ---------------------------------------------- |
+| `Arrays.sort(arr)`              | Sorts elements in ascending order              |
+| `Arrays.toString(arr)`          | Converts array contents into a readable string |
+| `Arrays.equals(a, b)`           | Checks whether two arrays have equal elements  |
+| `Arrays.binarySearch(arr, key)` | Searches for an element in a sorted array      |
+| `Arrays.fill(arr, value)`       | Fills all elements with a given value          |
+| `Arrays.copyOf(arr, length)`    | Creates a copy of an array                     |
 
 Example:
 
-```java
-Arrays.sort(numbers);
+```
+int[] arr = {30, 10, 20};
+
+Arrays.sort(arr);
+
+System.out.println(Arrays.toString(arr));
 ```
 
-Before:
+Output:
 
-```text
-[40, 10, 30, 20]
 ```
-
-After:
-
-```text
-[10, 20, 30, 40]
+[10, 20, 30]
 ```
-
-**Important:**
-These methods belong to the `Arrays` utility class.
