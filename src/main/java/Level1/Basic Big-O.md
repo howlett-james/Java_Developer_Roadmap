@@ -1,141 +1,96 @@
-## Level 1 — Basic Big-O
+## **Level 1 — Basic Big-O**
 
-### 1. Time Complexity
+Your Excel lists these six subtopics:
 
-**Definition:**
-Time complexity describes **how the running time of an algorithm grows as input size increases**.
+1. Time complexity
+2. Space complexity
+3. O(1)
+4. O(n)
+5. O(log n)
+6. O(n²)
+7. Best, average, and worst case
 
-Example:
+### **1. Time Complexity**
 
-```text
-10 elements  → takes 10 steps
-100 elements → takes 100 steps
-```
+**Definition:** Measures how the execution time of an algorithm grows as the input size increases.
 
-This is **O(n)**.
+Example: Checking every element in an array takes more time as the array gets larger.
 
----
+### **2. Space Complexity**
 
-### 2. Space Complexity
+**Definition:** Measures how much extra memory an algorithm needs as the input size increases.
 
-**Definition:**
-Space complexity describes **how much extra memory an algorithm needs as input size increases**.
+Example: Creating another array of size `n` requires O(n) extra space.
 
-Example:
+### **3. O(1) — Constant Time**
 
-```text
-Input: [10, 20, 30]
-
-If we create another array of 3 elements:
-Extra space grows with input.
-```
-
-This is **O(n)** space.
-
----
-
-### 3. O(1) — Constant
-
-**Definition:**
-The operation takes approximately the **same amount of time regardless of input size**.
-
-```text
-Array → [10, 20, 30, 40, 50]
-
-Access element at index 2 → 30
-```
-
-One direct operation → **O(1)**.
-
----
-
-### 4. O(n) — Linear
-
-**Definition:**
-Time increases **directly with the number of elements**.
+**Definition:** Execution time remains constant regardless of input size.
 
 Example:
 
-```text
-10 elements → ~10 checks
-100 elements → ~100 checks
+```
+System.out.println(arr[0]);
 ```
 
-Example: **Linear Search**
+Only one element is accessed.
 
-**O(n)**
+### **4. O(n) — Linear Time**
 
----
-
-### 5. O(log n) — Logarithmic
-
-**Definition:**
-The problem size is **reduced significantly in each step**, commonly by half.
-
-Example: **Binary Search**
-
-```text
-100 elements
-↓
-50
-↓
-25
-↓
-12
-↓
-6
-↓
-3
-```
-
-**O(log n)**
-
----
-
-### 6. O(n²) — Quadratic
-
-**Definition:**
-For every element, we may process **all elements again**.
+**Definition:** Execution time grows proportionally with the input size.
 
 Example:
 
-```text
-5 elements
-
-Each element → compare with 5 elements
+```
+for (int i = 0; i < n; i++) {
+    System.out.println(i);
+}
 ```
 
-Common example: **nested loops**
+If `n` doubles, the number of iterations doubles.
 
-**O(n²)**
+### **5. O(log n) — Logarithmic Time**
 
----
+**Definition:** The input size is reduced by half in each step.
 
-### 7. Best / Average / Worst Case
+Example: Binary Search.
 
-**Best Case:** Minimum work required.
+For an array of 16 elements:
 
-**Average Case:** Typical/expected amount of work.
+- 16 → 8
+- 8 → 4
+- 4 → 2
+- 2 → 1
 
-**Worst Case:** Maximum work required.
+### **6. O(n²) — Quadratic Time**
 
-Example: Linear Search
+**Definition:** Execution time grows proportionally to the square of the input size.
 
-```text
-[10, 20, 30, 40, 50]
+Example:
+
+```
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        System.out.println(i + " " + j);
+    }
+}
 ```
 
-Search for `10` → **Best Case: O(1)**
+For `n = 5`, the inner statement executes 25 times.
 
-Search for `30` → **Average Case: O(n)**
+### **7. Best, Average, and Worst Case**
 
-Search for `50` or missing value → **Worst Case: O(n)**
+These describe how much time an algorithm takes under different input conditions.
 
-### Remember
+| Case         | Meaning                         |
+| ------------ | ------------------------------- |
+| Best case    | Minimum time required           |
+| Average case | Expected time for typical input |
+| Worst case   | Maximum time required           |
 
-```text
-O(1)    → Constant
-O(log n) → Divide/reduce
-O(n)    → One-by-one
-O(n²)   → Nested/repeated
-```
+**Example: Linear Search**
+
+Array: `{10, 20, 30, 40, 50}`
+
+- Best case: Target is `10` — one comparison.
+- Average case: Target is somewhere in the middle.
+- Worst case: Target is `50` or absent — five comparisons.
